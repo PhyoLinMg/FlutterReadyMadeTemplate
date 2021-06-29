@@ -7,6 +7,9 @@ In This Repository, I will make neat and tidy features to our code.
 Used Package
 
 ```yaml
+flutter_riverpod: ^0.14.0+3
+shared_preferences: ^2.0.6
+stacked_themes: ^0.3.5
 ```
 
 #### Some Tips and Tricks
