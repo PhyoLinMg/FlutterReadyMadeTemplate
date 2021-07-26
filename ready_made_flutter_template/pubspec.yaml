@@ -27,7 +27,7 @@ dependencies:
   flutter_riverpod: ^1.0.0-dev.2
   flutter_secure_storage: ^4.2.0
   stacked_themes: ^0.3.5
-  day_night_switcher: ^0.2.0+1
+  
 
 dev_dependencies:
   flutter_test:

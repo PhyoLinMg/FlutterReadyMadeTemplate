@@ -20,12 +20,6 @@ class ThemeProvider {
   Future<void> setTheme(int themeIndex) async {
     service!.selectThemeAtIndex(themeIndex);
   }
-
-  Future<void> toggleDarkLightTheme(BuildContext context) async {
-    getThemeManager(context).toggleDarkLightTheme();
-    await FlutterSecureStorage().write(
-        key: isDarkKey, value: getThemeManager(context).isDarkMode.toString());
-  }
 }
 
 extension FicListExtension<T> on List<T> {

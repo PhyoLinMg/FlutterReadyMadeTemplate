@@ -2,21 +2,20 @@
 
 In This Repository, I will make neat and tidy features to our code.
 
-## Getting Started
+## The Template List I have currently done
 
-Used Package
-
-```yaml
-flutter_riverpod: ^0.14.0+3
-shared_preferences: ^2.0.6
-stacked_themes: ^0.3.5
-```
+- [Dark Theme App]()
+- [Multiple Theme App]()
+- [Pagination With StateNotifier]()
+- [Login Flow including Refreshing Access Token]()
 
 #### Some Tips and Tricks
 
 It is only for Visual Studio Code
 
-> **Ctrl+Shift+P or F1=>Configure User Snippets->choose Dart and paste the following**
+> **Ctrl+Shift+P or F1=>Configure User Snip**
+>
+> **pets->choose Dart and paste the following**
 
 ```json
 {
