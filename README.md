@@ -84,5 +84,5 @@ It is only for Visual Studio Code
 
 ### Flutter Notes
 
-**[Here](https://github.com/PhyoLinMg/ReadyMadeFlutterTemplate/blob/main/Flutter%20Notes.md)**
+**[Here](https://github.com/PhyoLinMg/FlutterReadyMadeTemplate/blob/main/Flutter%20Notes.md)**
 =======
