@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:pagination_with_notifier/pagination_listview/application/search_notifier.dart';
+import 'package:pagination_with_notifier/pagination_listview/application/search_paginate_notifier.dart';
 import 'package:pagination_with_notifier/pagination_listview/infrastructure/api_service.dart';
 import 'package:pagination_with_notifier/pagination_listview/infrastructure/pagination_repository.dart';
 
@@ -13,6 +12,19 @@ final apiServiceProvider = Provider(
   ),
 );
 
+final paginationRepositoryProvider = Provider(
+  (ref) => PaginationRepository(
+    ref.watch(apiServiceProvider),
+  ),
+);
+
 final searchNotifierProvider =
-    StateNotifierProvider<SearchNotifier, PaginationState>(
-        (ref) => SearchNotifier(ref.watch(apiServiceProvider)));
+    StateNotifierProvider<SearchPaginateNotifier, DataState>(
+        (ref) => SearchPaginateNotifier(
+              ref.watch(paginationRepositoryProvider),
+              ref.read,
+            ));
+
+final queryProvider = StateProvider<String>((ref) {
+  return "";
+});
