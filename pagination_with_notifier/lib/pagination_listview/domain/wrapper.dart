@@ -9,4 +9,13 @@ class Wrapper<T> with _$Wrapper<T> {
     required T entity,
     bool? isNextPageAvailable,
   }) = _Wrapper<T>;
+
+  factory Wrapper.get(
+    T entity, {
+    bool? isNextPageAvailable,
+  }) =>
+      Wrapper(
+        entity: entity,
+        isNextPageAvailable: isNextPageAvailable,
+      );
 }
