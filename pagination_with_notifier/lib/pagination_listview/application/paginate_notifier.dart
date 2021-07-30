@@ -6,24 +6,24 @@ import 'package:pagination_with_notifier/pagination_listview/domain/wrapper.dart
 
 part 'paginate_notifier.freezed.dart';
 
-typedef RepositoryGetter = Future<Either<Exception, Wrapper<List<Result>>>>
-    Function(int page);
+typedef DataGetter = Future<Either<Exception, Wrapper<List<dynamic>>>> Function(
+    int page);
 
 @freezed
 class PaginationState with _$PaginationState {
   const PaginationState._();
   const factory PaginationState.initial(
-    Wrapper<List<Result>> results,
+    Wrapper<List<dynamic>> results,
   ) = _Initial;
 
-  const factory PaginationState.loadInProgress(Wrapper<List<Result>> results,
+  const factory PaginationState.loadInProgress(Wrapper<List<dynamic>> results,
       {required int itemsPerPage}) = _LoadInProgress;
   const factory PaginationState.loadSuccess(
-    Wrapper<List<Result>> results, {
+    Wrapper<List<dynamic>> results, {
     required bool isNextPageAvailable,
   }) = _LoadSuccess;
   const factory PaginationState.loadFailure(
-    Wrapper<List<Result>> results,
+    Wrapper<List<dynamic>> results,
     Exception failure,
   ) = _LoadFailure;
 }
@@ -40,7 +40,7 @@ class PagniateNotifier extends StateNotifier<PaginationState> {
   }
 
   @protected
-  Future<void> getNextPage(RepositoryGetter getter) async {
+  Future<void> getNextPage(DataGetter getter) async {
     state = PaginationState.loadInProgress(
       state.results,
       itemsPerPage: 20,
