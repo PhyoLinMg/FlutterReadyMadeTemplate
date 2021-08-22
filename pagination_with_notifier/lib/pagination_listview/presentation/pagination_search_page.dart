@@ -31,15 +31,17 @@ class _PaginationSearchPageState extends ConsumerState<PaginationSearchPage> {
               );
             },
           ),
-          PaginatedDataListView(
-            paginatedDataNotifierProvider: searchPaginationNotifierProvider,
-            getNextPage: (/*ref*/ context) {
-              ref
-                  .read(searchPaginationNotifierProvider.notifier)
-                  .getNextSearchedDataPage(ref.read(queryProvider).state);
-            },
-            noResultsMessage:
-                "This is all we could find for your search term. Really...",
+          Expanded(
+            child: PaginatedDataListView(
+              paginatedDataNotifierProvider: searchPaginationNotifierProvider,
+              getNextPage: (/*ref*/ context) {
+                ref
+                    .read(searchPaginationNotifierProvider.notifier)
+                    .getNextSearchedDataPage(ref.read(queryProvider).state);
+              },
+              noResultsMessage:
+                  "This is all we could find for your search term. Really...",
+            ),
           ),
         ],
       ),

@@ -16,13 +16,13 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$PaginationStateTearOff {
   const _$PaginationStateTearOff();
 
-  _Initial initial(Wrapper<List<dynamic>> results) {
+  _Initial initial(Wrapper<List<Result>> results) {
     return _Initial(
       results,
     );
   }
 
-  _LoadInProgress loadInProgress(Wrapper<List<dynamic>> results,
+  _LoadInProgress loadInProgress(Wrapper<List<Result>> results,
       {required int itemsPerPage}) {
     return _LoadInProgress(
       results,
@@ -30,7 +30,7 @@ class _$PaginationStateTearOff {
     );
   }
 
-  _LoadSuccess loadSuccess(Wrapper<List<dynamic>> results,
+  _LoadSuccess loadSuccess(Wrapper<List<Result>> results,
       {required bool isNextPageAvailable}) {
     return _LoadSuccess(
       results,
@@ -38,7 +38,7 @@ class _$PaginationStateTearOff {
     );
   }
 
-  _LoadFailure loadFailure(Wrapper<List<dynamic>> results, Exception failure) {
+  _LoadFailure loadFailure(Wrapper<List<Result>> results, Exception failure) {
     return _LoadFailure(
       results,
       failure,
@@ -51,28 +51,28 @@ const $PaginationState = _$PaginationStateTearOff();
 
 /// @nodoc
 mixin _$PaginationState {
-  Wrapper<List<dynamic>> get results => throw _privateConstructorUsedError;
+  Wrapper<List<Result>> get results => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wrapper<List<dynamic>> results) initial,
-    required TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)
+    required TResult Function(Wrapper<List<Result>> results) initial,
+    required TResult Function(Wrapper<List<Result>> results, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Wrapper<List<dynamic>> results, bool isNextPageAvailable)
+            Wrapper<List<Result>> results, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Wrapper<List<dynamic>> results, Exception failure)
+    required TResult Function(Wrapper<List<Result>> results, Exception failure)
         loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wrapper<List<dynamic>> results)? initial,
-    TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)?
+    TResult Function(Wrapper<List<Result>> results)? initial,
+    TResult Function(Wrapper<List<Result>> results, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Wrapper<List<dynamic>> results, bool isNextPageAvailable)?
+    TResult Function(Wrapper<List<Result>> results, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Wrapper<List<dynamic>> results, Exception failure)?
+    TResult Function(Wrapper<List<Result>> results, Exception failure)?
         loadFailure,
     required TResult orElse(),
   }) =>
@@ -105,9 +105,9 @@ abstract class $PaginationStateCopyWith<$Res> {
   factory $PaginationStateCopyWith(
           PaginationState value, $Res Function(PaginationState) then) =
       _$PaginationStateCopyWithImpl<$Res>;
-  $Res call({Wrapper<List<dynamic>> results});
+  $Res call({Wrapper<List<Result>> results});
 
-  $WrapperCopyWith<List<dynamic>, $Res> get results;
+  $WrapperCopyWith<List<Result>, $Res> get results;
 }
 
 /// @nodoc
@@ -127,13 +127,13 @@ class _$PaginationStateCopyWithImpl<$Res>
       results: results == freezed
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as Wrapper<List<dynamic>>,
+              as Wrapper<List<Result>>,
     ));
   }
 
   @override
-  $WrapperCopyWith<List<dynamic>, $Res> get results {
-    return $WrapperCopyWith<List<dynamic>, $Res>(_value.results, (value) {
+  $WrapperCopyWith<List<Result>, $Res> get results {
+    return $WrapperCopyWith<List<Result>, $Res>(_value.results, (value) {
       return _then(_value.copyWith(results: value));
     });
   }
@@ -145,10 +145,10 @@ abstract class _$InitialCopyWith<$Res>
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
   @override
-  $Res call({Wrapper<List<dynamic>> results});
+  $Res call({Wrapper<List<Result>> results});
 
   @override
-  $WrapperCopyWith<List<dynamic>, $Res> get results;
+  $WrapperCopyWith<List<Result>, $Res> get results;
 }
 
 /// @nodoc
@@ -168,7 +168,7 @@ class __$InitialCopyWithImpl<$Res> extends _$PaginationStateCopyWithImpl<$Res>
       results == freezed
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as Wrapper<List<dynamic>>,
+              as Wrapper<List<Result>>,
     ));
   }
 }
@@ -179,7 +179,7 @@ class _$_Initial extends _Initial {
   const _$_Initial(this.results) : super._();
 
   @override
-  final Wrapper<List<dynamic>> results;
+  final Wrapper<List<Result>> results;
 
   @override
   String toString() {
@@ -206,13 +206,13 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wrapper<List<dynamic>> results) initial,
-    required TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)
+    required TResult Function(Wrapper<List<Result>> results) initial,
+    required TResult Function(Wrapper<List<Result>> results, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Wrapper<List<dynamic>> results, bool isNextPageAvailable)
+            Wrapper<List<Result>> results, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Wrapper<List<dynamic>> results, Exception failure)
+    required TResult Function(Wrapper<List<Result>> results, Exception failure)
         loadFailure,
   }) {
     return initial(results);
@@ -221,12 +221,12 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wrapper<List<dynamic>> results)? initial,
-    TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)?
+    TResult Function(Wrapper<List<Result>> results)? initial,
+    TResult Function(Wrapper<List<Result>> results, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Wrapper<List<dynamic>> results, bool isNextPageAvailable)?
+    TResult Function(Wrapper<List<Result>> results, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Wrapper<List<dynamic>> results, Exception failure)?
+    TResult Function(Wrapper<List<Result>> results, Exception failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -264,11 +264,11 @@ class _$_Initial extends _Initial {
 }
 
 abstract class _Initial extends PaginationState {
-  const factory _Initial(Wrapper<List<dynamic>> results) = _$_Initial;
+  const factory _Initial(Wrapper<List<Result>> results) = _$_Initial;
   const _Initial._() : super._();
 
   @override
-  Wrapper<List<dynamic>> get results => throw _privateConstructorUsedError;
+  Wrapper<List<Result>> get results => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$InitialCopyWith<_Initial> get copyWith =>
@@ -282,10 +282,10 @@ abstract class _$LoadInProgressCopyWith<$Res>
           _LoadInProgress value, $Res Function(_LoadInProgress) then) =
       __$LoadInProgressCopyWithImpl<$Res>;
   @override
-  $Res call({Wrapper<List<dynamic>> results, int itemsPerPage});
+  $Res call({Wrapper<List<Result>> results, int itemsPerPage});
 
   @override
-  $WrapperCopyWith<List<dynamic>, $Res> get results;
+  $WrapperCopyWith<List<Result>, $Res> get results;
 }
 
 /// @nodoc
@@ -308,7 +308,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
       results == freezed
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as Wrapper<List<dynamic>>,
+              as Wrapper<List<Result>>,
       itemsPerPage: itemsPerPage == freezed
           ? _value.itemsPerPage
           : itemsPerPage // ignore: cast_nullable_to_non_nullable
@@ -324,7 +324,7 @@ class _$_LoadInProgress extends _LoadInProgress {
       : super._();
 
   @override
-  final Wrapper<List<dynamic>> results;
+  final Wrapper<List<Result>> results;
   @override
   final int itemsPerPage;
 
@@ -359,13 +359,13 @@ class _$_LoadInProgress extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wrapper<List<dynamic>> results) initial,
-    required TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)
+    required TResult Function(Wrapper<List<Result>> results) initial,
+    required TResult Function(Wrapper<List<Result>> results, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Wrapper<List<dynamic>> results, bool isNextPageAvailable)
+            Wrapper<List<Result>> results, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Wrapper<List<dynamic>> results, Exception failure)
+    required TResult Function(Wrapper<List<Result>> results, Exception failure)
         loadFailure,
   }) {
     return loadInProgress(results, itemsPerPage);
@@ -374,12 +374,12 @@ class _$_LoadInProgress extends _LoadInProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wrapper<List<dynamic>> results)? initial,
-    TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)?
+    TResult Function(Wrapper<List<Result>> results)? initial,
+    TResult Function(Wrapper<List<Result>> results, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Wrapper<List<dynamic>> results, bool isNextPageAvailable)?
+    TResult Function(Wrapper<List<Result>> results, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Wrapper<List<dynamic>> results, Exception failure)?
+    TResult Function(Wrapper<List<Result>> results, Exception failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -417,12 +417,12 @@ class _$_LoadInProgress extends _LoadInProgress {
 }
 
 abstract class _LoadInProgress extends PaginationState {
-  const factory _LoadInProgress(Wrapper<List<dynamic>> results,
+  const factory _LoadInProgress(Wrapper<List<Result>> results,
       {required int itemsPerPage}) = _$_LoadInProgress;
   const _LoadInProgress._() : super._();
 
   @override
-  Wrapper<List<dynamic>> get results => throw _privateConstructorUsedError;
+  Wrapper<List<Result>> get results => throw _privateConstructorUsedError;
   int get itemsPerPage => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -437,10 +437,10 @@ abstract class _$LoadSuccessCopyWith<$Res>
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({Wrapper<List<dynamic>> results, bool isNextPageAvailable});
+  $Res call({Wrapper<List<Result>> results, bool isNextPageAvailable});
 
   @override
-  $WrapperCopyWith<List<dynamic>, $Res> get results;
+  $WrapperCopyWith<List<Result>, $Res> get results;
 }
 
 /// @nodoc
@@ -463,7 +463,7 @@ class __$LoadSuccessCopyWithImpl<$Res>
       results == freezed
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as Wrapper<List<dynamic>>,
+              as Wrapper<List<Result>>,
       isNextPageAvailable: isNextPageAvailable == freezed
           ? _value.isNextPageAvailable
           : isNextPageAvailable // ignore: cast_nullable_to_non_nullable
@@ -479,7 +479,7 @@ class _$_LoadSuccess extends _LoadSuccess {
       : super._();
 
   @override
-  final Wrapper<List<dynamic>> results;
+  final Wrapper<List<Result>> results;
   @override
   final bool isNextPageAvailable;
 
@@ -514,13 +514,13 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wrapper<List<dynamic>> results) initial,
-    required TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)
+    required TResult Function(Wrapper<List<Result>> results) initial,
+    required TResult Function(Wrapper<List<Result>> results, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Wrapper<List<dynamic>> results, bool isNextPageAvailable)
+            Wrapper<List<Result>> results, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Wrapper<List<dynamic>> results, Exception failure)
+    required TResult Function(Wrapper<List<Result>> results, Exception failure)
         loadFailure,
   }) {
     return loadSuccess(results, isNextPageAvailable);
@@ -529,12 +529,12 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wrapper<List<dynamic>> results)? initial,
-    TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)?
+    TResult Function(Wrapper<List<Result>> results)? initial,
+    TResult Function(Wrapper<List<Result>> results, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Wrapper<List<dynamic>> results, bool isNextPageAvailable)?
+    TResult Function(Wrapper<List<Result>> results, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Wrapper<List<dynamic>> results, Exception failure)?
+    TResult Function(Wrapper<List<Result>> results, Exception failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -572,12 +572,12 @@ class _$_LoadSuccess extends _LoadSuccess {
 }
 
 abstract class _LoadSuccess extends PaginationState {
-  const factory _LoadSuccess(Wrapper<List<dynamic>> results,
+  const factory _LoadSuccess(Wrapper<List<Result>> results,
       {required bool isNextPageAvailable}) = _$_LoadSuccess;
   const _LoadSuccess._() : super._();
 
   @override
-  Wrapper<List<dynamic>> get results => throw _privateConstructorUsedError;
+  Wrapper<List<Result>> get results => throw _privateConstructorUsedError;
   bool get isNextPageAvailable => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -592,10 +592,10 @@ abstract class _$LoadFailureCopyWith<$Res>
           _LoadFailure value, $Res Function(_LoadFailure) then) =
       __$LoadFailureCopyWithImpl<$Res>;
   @override
-  $Res call({Wrapper<List<dynamic>> results, Exception failure});
+  $Res call({Wrapper<List<Result>> results, Exception failure});
 
   @override
-  $WrapperCopyWith<List<dynamic>, $Res> get results;
+  $WrapperCopyWith<List<Result>, $Res> get results;
 }
 
 /// @nodoc
@@ -618,7 +618,7 @@ class __$LoadFailureCopyWithImpl<$Res>
       results == freezed
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as Wrapper<List<dynamic>>,
+              as Wrapper<List<Result>>,
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -633,7 +633,7 @@ class _$_LoadFailure extends _LoadFailure {
   const _$_LoadFailure(this.results, this.failure) : super._();
 
   @override
-  final Wrapper<List<dynamic>> results;
+  final Wrapper<List<Result>> results;
   @override
   final Exception failure;
 
@@ -667,13 +667,13 @@ class _$_LoadFailure extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wrapper<List<dynamic>> results) initial,
-    required TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)
+    required TResult Function(Wrapper<List<Result>> results) initial,
+    required TResult Function(Wrapper<List<Result>> results, int itemsPerPage)
         loadInProgress,
     required TResult Function(
-            Wrapper<List<dynamic>> results, bool isNextPageAvailable)
+            Wrapper<List<Result>> results, bool isNextPageAvailable)
         loadSuccess,
-    required TResult Function(Wrapper<List<dynamic>> results, Exception failure)
+    required TResult Function(Wrapper<List<Result>> results, Exception failure)
         loadFailure,
   }) {
     return loadFailure(results, failure);
@@ -682,12 +682,12 @@ class _$_LoadFailure extends _LoadFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wrapper<List<dynamic>> results)? initial,
-    TResult Function(Wrapper<List<dynamic>> results, int itemsPerPage)?
+    TResult Function(Wrapper<List<Result>> results)? initial,
+    TResult Function(Wrapper<List<Result>> results, int itemsPerPage)?
         loadInProgress,
-    TResult Function(Wrapper<List<dynamic>> results, bool isNextPageAvailable)?
+    TResult Function(Wrapper<List<Result>> results, bool isNextPageAvailable)?
         loadSuccess,
-    TResult Function(Wrapper<List<dynamic>> results, Exception failure)?
+    TResult Function(Wrapper<List<Result>> results, Exception failure)?
         loadFailure,
     required TResult orElse(),
   }) {
@@ -725,12 +725,12 @@ class _$_LoadFailure extends _LoadFailure {
 }
 
 abstract class _LoadFailure extends PaginationState {
-  const factory _LoadFailure(
-      Wrapper<List<dynamic>> results, Exception failure) = _$_LoadFailure;
+  const factory _LoadFailure(Wrapper<List<Result>> results, Exception failure) =
+      _$_LoadFailure;
   const _LoadFailure._() : super._();
 
   @override
-  Wrapper<List<dynamic>> get results => throw _privateConstructorUsedError;
+  Wrapper<List<Result>> get results => throw _privateConstructorUsedError;
   Exception get failure => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

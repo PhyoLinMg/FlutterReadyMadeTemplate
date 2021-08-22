@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:pagination_with_notifier/pagination_listview/application/paginate_notifier.dart';
+import 'package:pagination_with_notifier/pagination_listview/domain/movie_response.dart';
 import 'package:pagination_with_notifier/pagination_listview/presentation/failure_data_tile.dart';
 import 'package:pagination_with_notifier/pagination_listview/presentation/loading_result_tile.dart';
 import 'package:pagination_with_notifier/pagination_listview/presentation/no_result_display.dart';
@@ -90,6 +91,7 @@ class _PaginatedListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final fsb = FloatingSearchBar.of(context)?.widget;
     return ListView.builder(
+      shrinkWrap: true,
       padding: fsb == null
           ? EdgeInsets.zero
           : EdgeInsets.only(
@@ -103,10 +105,10 @@ class _PaginatedListView extends StatelessWidget {
       ),
       itemBuilder: (contex, index) {
         return state.map(
-          initial: (_) => ResultTile(result: _.results.entity[index]),
+          initial: (_) => ResultTile(result: _.results.entity[index] as Result),
           loadInProgress: (_) {
             if (index < _.results.entity.length) {
-              return ResultTile(result: _.results.entity[index]);
+              return ResultTile(result: _.results.entity[index] as Result);
             } else {
               return const LoadingResultTile();
             }
@@ -116,7 +118,7 @@ class _PaginatedListView extends StatelessWidget {
           ),
           loadFailure: (_) {
             if (index < _.results.entity.length) {
-              return ResultTile(result: _.results.entity[index]);
+              return ResultTile(result: _.results.entity[index] as Result);
             } else {
               return FailureDataTile(
                 exception: _.failure,
