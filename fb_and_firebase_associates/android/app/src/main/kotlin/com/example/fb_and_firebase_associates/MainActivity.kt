@@ -1,4 +1,4 @@
-package com.example.deep_link
+package com.example.fb_and_firebase_associates
 
 import io.flutter.embedding.android.FlutterActivity
 

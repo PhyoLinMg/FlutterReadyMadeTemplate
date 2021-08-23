@@ -1,6 +1,6 @@
 {
-    "name": "deep_link",
-    "short_name": "deep_link",
+    "name": "fb_and_firebase_associates",
+    "short_name": "fb_and_firebase_associates",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
