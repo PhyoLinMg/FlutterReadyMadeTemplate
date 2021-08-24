@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fb_and_firebase_associates">
+    package="com.linmg.fb_and_firebase_associates">
    <application
         android:label="fb_and_firebase_associates"
         android:icon="@mipmap/ic_launcher">

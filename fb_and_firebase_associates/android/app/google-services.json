@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702069133659",
+    "project_id": "fb-firebase-associated",
+    "storage_bucket": "fb-firebase-associated.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702069133659:android:0f6546ed01d319b41bca7e",
+        "android_client_info": {
+          "package_name": "com.linmg.fb_and_firebase_associates"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702069133659-62ssajqs75l4sd3368cai4f57v3g3095.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKGvI3Tp31pMSBI1qmjdhn01dL25NHVuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702069133659-62ssajqs75l4sd3368cai4f57v3g3095.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,16 +1,10 @@
 # fb_and_firebase_associates
 
-A new Flutter project.
+Firebase and Facebook combination to easily access the situation.
+It is a kind of my template.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Referrenced from:
+- [Firebase Flutter Template](https://github.com/rutvik110/Flutter-Firebase-Features-Templates)
+- [Flutter Deep Link](https://github.com/hello-paulvin/dynamic-link-reward-app)
+- [Flutter Deep Link Article](https://levelup.gitconnected.com/handling-dynamic-links-using-flutter-and-firebase-2be5f6a85e1f)
