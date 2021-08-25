@@ -1,10 +1,9 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:fb_and_firebase_associates/router/router.gr.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class DeepLinkRepository {
-  Future<void> initDynamicLinks(BuildContext context) async {
+  Future<void> initDynamicLinks(BuildContext context,
+      {required Function(String?) goTo}) async {
     try {
       final PendingDynamicLinkData? data =
           await FirebaseDynamicLinks.instance.getInitialLink();
@@ -14,12 +13,7 @@ class DeepLinkRepository {
         print("getInitialLink DeepLink Path" + deepLink.path);
         print(
             "getInitialLink DeepLink Id is ${deepLink.queryParameters["id"]}");
-
-        AutoRouter.of(context).push(
-          PostDetailRoute(
-            postId: int.parse(deepLink.queryParameters["id"]!),
-          ),
-        );
+        goTo(deepLink.queryParameters["id"]);
       }
 
       FirebaseDynamicLinks.instance.onLink(
@@ -30,11 +24,7 @@ class DeepLinkRepository {
           print("onLink DeepLink Path" + deepLink.path);
           print("onLink DeepLink Id is ${deepLink.queryParameters["id"]}");
 
-          AutoRouter.of(context).push(
-            PostDetailRoute(
-              postId: int.parse(deepLink.queryParameters["id"]!),
-            ),
-          );
+          goTo(deepLink.queryParameters["id"]);
         }
       }, onError: (OnLinkErrorException e) async {
         print("deeplink error");
@@ -57,6 +47,7 @@ class DeepLinkRepository {
       dynamicLinkParametersOptions: DynamicLinkParametersOptions(
         shortDynamicLinkPathLength: ShortDynamicLinkPathLength.short,
       ),
+      socialMetaTagParameters: SocialMetaTagParameters(),
       iosParameters: IosParameters(
         bundleId: '',
         minimumVersion: '0',

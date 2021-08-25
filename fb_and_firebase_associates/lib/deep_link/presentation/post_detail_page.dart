@@ -12,6 +12,7 @@ class PostDetailPage extends StatefulWidget {
 }
 
 class _PostDetailPageState extends State<PostDetailPage> {
+  var data = "";
   @override
   void initState() {
     super.initState();
@@ -39,10 +40,16 @@ class _PostDetailPageState extends State<PostDetailPage> {
             onPressed: () {
               DeepLinkRepository()
                   .createDynamicLink(widget.postId!)
-                  .then((value) => print(value.toString()));
+                  .then((value) {
+                print(value.toString());
+                setState(() {
+                  data = value;
+                });
+              });
             },
             child: Text("Share the post"),
           ),
+          SelectableText(data),
         ],
       ),
     );
