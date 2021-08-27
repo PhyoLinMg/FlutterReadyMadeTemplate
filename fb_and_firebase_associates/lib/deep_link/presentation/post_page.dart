@@ -14,6 +14,13 @@ class PostPage extends StatefulWidget {
 class _PostPageState extends State<PostPage> {
   @override
   void initState() {
+    // DeepLinkRepository().initUniLink(goTo: (postId) {
+    //   AutoRouter.of(context).push(
+    //     PostDetailRoute(
+    //       postId: int.parse(postId!),
+    //     ),
+    //   );
+    // });
     DeepLinkRepository().initDynamicLinks(context, goTo: (postId) {
       AutoRouter.of(context).push(
         PostDetailRoute(

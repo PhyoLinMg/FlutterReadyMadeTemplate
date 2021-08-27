@@ -24,21 +24,27 @@ dependencies:
   auto_route: ^2.3.0
   cloud_firestore: null
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.0
   firebase_auth: null
   firebase_core: null
   firebase_dynamic_links: null
   flutter:
     sdk: flutter
+  flutter_facebook_auth: ^3.5.1
   flutter_riverpod: ^1.0.0-dev.7
   google_sign_in: null
   hooks_riverpod: ^1.0.0-dev.7
   sign_in_with_apple: null
+  uni_links: ^0.5.1
+  freezed_annotation: ^0.14.2
+  
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   auto_route_generator: any
   build_runner: any
+  flutter_test:
+    sdk: flutter
+  freezed: ^0.14.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

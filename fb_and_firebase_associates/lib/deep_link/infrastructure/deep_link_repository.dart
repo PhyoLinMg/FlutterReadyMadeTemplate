@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:uni_links/uni_links.dart';
 
 class DeepLinkRepository {
   Future<void> initDynamicLinks(BuildContext context,
@@ -31,6 +35,25 @@ class DeepLinkRepository {
         print(e.message);
       });
     } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  Future<void> initUniLink({required Function(String?) goTo}) async {
+    uriLinkStream.listen((uri) {
+      print("got uri: ${uri?.path} ${uri?.queryParametersAll}");
+    }, onError: (Object? error) {
+      print("error: $error");
+    });
+
+    try {
+      Uri? _initialUri = await getInitialUri();
+      if (_initialUri != null && _initialUri.pathSegments.contains('id')) {
+        var id = _initialUri.queryParameters['id'];
+
+        goTo(id);
+      }
+    } on PlatformException catch (e) {
       print(e.toString());
     }
   }
