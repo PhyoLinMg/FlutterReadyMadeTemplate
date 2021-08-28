@@ -3,23 +3,24 @@ import 'package:fb_and_firebase_associates/login/google_login/infrastructure/goo
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'google_auth_notifier.freezed.dart';
+part 'auth_notifier.freezed.dart';
 
 @freezed
-class GoogleAuthState with _$GoogleAuthState {
-  const GoogleAuthState._();
-  const factory GoogleAuthState.initial() = _Initial;
-  const factory GoogleAuthState.unauthenticated() = _Unauthenticated;
-  const factory GoogleAuthState.authenticated(
+class AuthState with _$AuthState {
+  const AuthState._();
+  const factory AuthState.initial() = _Initial;
+  const factory AuthState.unauthenticated() = _Unauthenticated;
+  const factory AuthState.authenticated(
     String token,
   ) = _Authenticated;
 }
 
-class GoogleAuthNotifier extends StateNotifier<GoogleAuthState> {
+class AuthNotifier extends StateNotifier<AuthState> {
+  final FbLoginRepository _fbLoginRepository;
   final GoogleLoginRepository _googleLoginRepository;
 
-  GoogleAuthNotifier(this._googleLoginRepository)
-      : super(const GoogleAuthState.initial());
+  AuthNotifier(this._fbLoginRepository, this._googleLoginRepository)
+      : super(const AuthState.initial());
 
   // Future<void> checkAndUpdateState() async {
   //   // state=(await _fbLoginRepository.getToken()).fold(
