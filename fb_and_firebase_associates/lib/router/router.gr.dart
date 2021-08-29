@@ -9,6 +9,7 @@ import 'package:flutter/material.dart' as _i2;
 
 import '../deep_link/presentation/post_detail_page.dart' as _i4;
 import '../deep_link/presentation/post_page.dart' as _i3;
+import '../splash_screen.dart' as _i5;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
@@ -29,18 +30,24 @@ class AppRouter extends _i1.RootStackRouter {
               orElse: () =>
                   PostDetailRouteArgs(postId: pathParams.optInt('id')));
           return _i4.PostDetailPage(key: args.key, postId: args.postId);
+        }),
+    SplashScreen.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i5.SplashScreen();
         })
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(PostRoute.name, path: '/'),
-        _i1.RouteConfig(PostDetailRoute.name, path: '/posts/:id')
+        _i1.RouteConfig(PostRoute.name, path: '/post-page'),
+        _i1.RouteConfig(PostDetailRoute.name, path: '/posts/:id'),
+        _i1.RouteConfig(SplashScreen.name, path: '/')
       ];
 }
 
 class PostRoute extends _i1.PageRouteInfo {
-  const PostRoute() : super(name, path: '/');
+  const PostRoute() : super(name, path: '/post-page');
 
   static const String name = 'PostRoute';
 }
@@ -61,4 +68,10 @@ class PostDetailRouteArgs {
   final _i2.Key? key;
 
   final int? postId;
+}
+
+class SplashScreen extends _i1.PageRouteInfo {
+  const SplashScreen() : super(name, path: '/');
+
+  static const String name = 'SplashScreen';
 }
