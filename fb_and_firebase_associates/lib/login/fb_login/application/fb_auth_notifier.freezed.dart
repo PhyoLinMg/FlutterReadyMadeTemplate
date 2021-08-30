@@ -29,6 +29,12 @@ class _$FbAuthStateTearOff {
       token,
     );
   }
+
+  _Failure failure(AuthFailure failure) {
+    return _Failure(
+      failure,
+    );
+  }
 }
 
 /// @nodoc
@@ -41,6 +47,7 @@ mixin _$FbAuthState {
     required TResult Function() initial,
     required TResult Function() unauthenticated,
     required TResult Function(String token) authenticated,
+    required TResult Function(AuthFailure failure) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +55,7 @@ mixin _$FbAuthState {
     TResult Function()? initial,
     TResult Function()? unauthenticated,
     TResult Function(String token)? authenticated,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +64,7 @@ mixin _$FbAuthState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +72,7 @@ mixin _$FbAuthState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +134,7 @@ class _$_Initial extends _Initial {
     required TResult Function() initial,
     required TResult Function() unauthenticated,
     required TResult Function(String token) authenticated,
+    required TResult Function(AuthFailure failure) failure,
   }) {
     return initial();
   }
@@ -134,6 +145,7 @@ class _$_Initial extends _Initial {
     TResult Function()? initial,
     TResult Function()? unauthenticated,
     TResult Function(String token)? authenticated,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -148,6 +160,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Failure value) failure,
   }) {
     return initial(this);
   }
@@ -158,6 +171,7 @@ class _$_Initial extends _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -215,6 +229,7 @@ class _$_Unauthenticated extends _Unauthenticated {
     required TResult Function() initial,
     required TResult Function() unauthenticated,
     required TResult Function(String token) authenticated,
+    required TResult Function(AuthFailure failure) failure,
   }) {
     return unauthenticated();
   }
@@ -225,6 +240,7 @@ class _$_Unauthenticated extends _Unauthenticated {
     TResult Function()? initial,
     TResult Function()? unauthenticated,
     TResult Function(String token)? authenticated,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -239,6 +255,7 @@ class _$_Unauthenticated extends _Unauthenticated {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Failure value) failure,
   }) {
     return unauthenticated(this);
   }
@@ -249,6 +266,7 @@ class _$_Unauthenticated extends _Unauthenticated {
     TResult Function(_Initial value)? initial,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -330,6 +348,7 @@ class _$_Authenticated extends _Authenticated {
     required TResult Function() initial,
     required TResult Function() unauthenticated,
     required TResult Function(String token) authenticated,
+    required TResult Function(AuthFailure failure) failure,
   }) {
     return authenticated(token);
   }
@@ -340,6 +359,7 @@ class _$_Authenticated extends _Authenticated {
     TResult Function()? initial,
     TResult Function()? unauthenticated,
     TResult Function(String token)? authenticated,
+    TResult Function(AuthFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -354,6 +374,7 @@ class _$_Authenticated extends _Authenticated {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Failure value) failure,
   }) {
     return authenticated(this);
   }
@@ -364,6 +385,7 @@ class _$_Authenticated extends _Authenticated {
     TResult Function(_Initial value)? initial,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -380,5 +402,127 @@ abstract class _Authenticated extends FbAuthState {
   String get token => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AuthenticatedCopyWith<_Authenticated> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$FailureCopyWith<$Res> {
+  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
+      __$FailureCopyWithImpl<$Res>;
+  $Res call({AuthFailure failure});
+}
+
+/// @nodoc
+class __$FailureCopyWithImpl<$Res> extends _$FbAuthStateCopyWithImpl<$Res>
+    implements _$FailureCopyWith<$Res> {
+  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
+      : super(_value, (v) => _then(v as _Failure));
+
+  @override
+  _Failure get _value => super._value as _Failure;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(_Failure(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as AuthFailure,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Failure extends _Failure {
+  const _$_Failure(this.failure) : super._();
+
+  @override
+  final AuthFailure failure;
+
+  @override
+  String toString() {
+    return 'FbAuthState.failure(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Failure &&
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality().equals(other.failure, failure)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
+
+  @JsonKey(ignore: true)
+  @override
+  _$FailureCopyWith<_Failure> get copyWith =>
+      __$FailureCopyWithImpl<_Failure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() unauthenticated,
+    required TResult Function(String token) authenticated,
+    required TResult Function(AuthFailure failure) failure,
+  }) {
+    return failure(this.failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? unauthenticated,
+    TResult Function(String token)? authenticated,
+    TResult Function(AuthFailure failure)? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(this.failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Failure value) failure,
+  }) {
+    return failure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Failure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Failure extends FbAuthState {
+  const factory _Failure(AuthFailure failure) = _$_Failure;
+  const _Failure._() : super._();
+
+  AuthFailure get failure => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$FailureCopyWith<_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }

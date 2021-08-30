@@ -26,7 +26,7 @@ class FbLoginRepository implements LoginRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signOut() async {
+  Future<Either<AuthFailure, Unit>> logOut() async {
     try {
       await _auth.logOut();
       return right(unit);

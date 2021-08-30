@@ -4,5 +4,5 @@ import 'package:fb_and_firebase_associates/login/core/infrastructure/auth_failur
 abstract class LoginRepository {
   Future<Either<AuthFailure, String>> login();
 
-  Future<Either<AuthFailure, Unit>> signOut();
+  Future<Either<AuthFailure, Unit>> logOut();
 }

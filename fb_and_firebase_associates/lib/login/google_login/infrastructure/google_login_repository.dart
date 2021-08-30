@@ -20,7 +20,7 @@ class GoogleLoginRepository implements LoginRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signOut() async {
+  Future<Either<AuthFailure, Unit>> logOut() async {
     try {
       await _googleSignIn.signOut();
       return right(unit);

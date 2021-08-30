@@ -1,5 +1,5 @@
-import 'package:fb_and_firebase_associates/login/fb_login/infrastructure/fb_login_repository.dart';
-import 'package:fb_and_firebase_associates/login/google_login/infrastructure/google_login_repository.dart';
+import 'package:fb_and_firebase_associates/login/core/infrastructure/auth_failure.dart';
+import 'package:fb_and_firebase_associates/login/core/infrastructure/login_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,10 +13,11 @@ class GoogleAuthState with _$GoogleAuthState {
   const factory GoogleAuthState.authenticated(
     String token,
   ) = _Authenticated;
+  const factory GoogleAuthState.failure(AuthFailure failure) = _Failure;
 }
 
 class GoogleAuthNotifier extends StateNotifier<GoogleAuthState> {
-  final GoogleLoginRepository _googleLoginRepository;
+  final LoginRepository _googleLoginRepository;
 
   GoogleAuthNotifier(this._googleLoginRepository)
       : super(const GoogleAuthState.initial());
@@ -25,6 +26,19 @@ class GoogleAuthNotifier extends StateNotifier<GoogleAuthState> {
   //   // state=(await _fbLoginRepository.getToken()).fold(
   // }
   //provider needs to be fb or google
-  Future<void> login(String provider) async {}
-  Future<void> logOut(String provider) async {}
+  Future<void> login() async {
+    final failureOrSignedOut = await _googleLoginRepository.login();
+    state = failureOrSignedOut.fold(
+      (l) => GoogleAuthState.failure(l),
+      (r) => GoogleAuthState.authenticated(r),
+    );
+  }
+
+  Future<void> logOut() async {
+    final failureOrSignedOut = await _googleLoginRepository.logOut();
+    state = failureOrSignedOut.fold(
+      (l) => GoogleAuthState.failure(l),
+      (r) => const GoogleAuthState.unauthenticated(),
+    );
+  }
 }
