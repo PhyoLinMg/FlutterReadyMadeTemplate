@@ -20,10 +20,11 @@ class AuthState with _$AuthState {
 }
 
 class AuthNotifier extends StateNotifier<AuthState> {
-  final LoginRepository _fbLoginRepository;
-  final LoginRepository _googleLoginRepository;
+  final LoginRepository fbLoginRepository;
+  final LoginRepository googleLoginRepository;
 
-  AuthNotifier(this._fbLoginRepository, this._googleLoginRepository)
+  AuthNotifier(
+      {required this.fbLoginRepository, required this.googleLoginRepository})
       : super(const AuthState.initial());
 
   // Future<void> checkAndUpdateState() async {
@@ -32,11 +33,11 @@ class AuthNotifier extends StateNotifier<AuthState> {
   //provider needs to be fb or google
   Future<void> login(LoginType provider) async {
     if (provider == LoginType.facebook) {
-      final fbFailureOrToken = await _fbLoginRepository.login();
+      final fbFailureOrToken = await fbLoginRepository.login();
       state = fbFailureOrToken.fold((l) => AuthState.authenticationFailure(l),
           (r) => AuthState.authenticated(r));
     } else if (provider == LoginType.google) {
-      final googleFailureOrToken = await _googleLoginRepository.login();
+      final googleFailureOrToken = await googleLoginRepository.login();
       state = googleFailureOrToken.fold(
         (l) => AuthState.authenticationFailure(l),
         (r) => AuthState.authenticated(r),
@@ -47,14 +48,14 @@ class AuthNotifier extends StateNotifier<AuthState> {
   Future<void> logOut(LoginType provider) async {
     switch (provider) {
       case LoginType.facebook:
-        final fbFailureOrSignedOut = await _fbLoginRepository.logOut();
+        final fbFailureOrSignedOut = await fbLoginRepository.logOut();
         state = fbFailureOrSignedOut.fold(
           (l) => AuthState.authenticationFailure(l),
           (r) => const AuthState.unauthenticated(),
         );
         break;
       case LoginType.google:
-        final googleFailureOrSignedOut = await _googleLoginRepository.logOut();
+        final googleFailureOrSignedOut = await googleLoginRepository.logOut();
         state = googleFailureOrSignedOut.fold(
           (l) => AuthState.authenticationFailure(l),
           (r) => const AuthState.unauthenticated(),

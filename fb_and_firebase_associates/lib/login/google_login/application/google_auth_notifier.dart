@@ -17,9 +17,9 @@ class GoogleAuthState with _$GoogleAuthState {
 }
 
 class GoogleAuthNotifier extends StateNotifier<GoogleAuthState> {
-  final LoginRepository _googleLoginRepository;
+  final LoginRepository googleLoginRepository;
 
-  GoogleAuthNotifier(this._googleLoginRepository)
+  GoogleAuthNotifier({required this.googleLoginRepository})
       : super(const GoogleAuthState.initial());
 
   // Future<void> checkAndUpdateState() async {
@@ -27,7 +27,7 @@ class GoogleAuthNotifier extends StateNotifier<GoogleAuthState> {
   // }
   //provider needs to be fb or google
   Future<void> login() async {
-    final failureOrSignedOut = await _googleLoginRepository.login();
+    final failureOrSignedOut = await googleLoginRepository.login();
     state = failureOrSignedOut.fold(
       (l) => GoogleAuthState.failure(l),
       (r) => GoogleAuthState.authenticated(r),
@@ -35,7 +35,7 @@ class GoogleAuthNotifier extends StateNotifier<GoogleAuthState> {
   }
 
   Future<void> logOut() async {
-    final failureOrSignedOut = await _googleLoginRepository.logOut();
+    final failureOrSignedOut = await googleLoginRepository.logOut();
     state = failureOrSignedOut.fold(
       (l) => GoogleAuthState.failure(l),
       (r) => const GoogleAuthState.unauthenticated(),

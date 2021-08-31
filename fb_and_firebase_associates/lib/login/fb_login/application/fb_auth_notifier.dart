@@ -19,16 +19,17 @@ class FbAuthState with _$FbAuthState {
 }
 
 class FbAuthNotifier extends StateNotifier<FbAuthState> {
-  final LoginRepository _fbLoginRepository;
+  final LoginRepository fbLoginRepository;
 
-  FbAuthNotifier(this._fbLoginRepository) : super(const FbAuthState.initial());
+  FbAuthNotifier({required this.fbLoginRepository})
+      : super(const FbAuthState.initial());
 
   // Future<void> checkAndUpdateState() async {
   //   // state=(await _fbLoginRepository.getToken()).fold(
   // }
   //provider needs to be fb or google
   Future<void> login() async {
-    final failureOrToken = await _fbLoginRepository.login();
+    final failureOrToken = await fbLoginRepository.login();
     state = failureOrToken.fold(
       (l) => FbAuthState.failure(l),
       (r) => FbAuthState.authenticated(r),
@@ -36,7 +37,7 @@ class FbAuthNotifier extends StateNotifier<FbAuthState> {
   }
 
   Future<void> logOut(String provider) async {
-    final failureOrSignedOut = await _fbLoginRepository.logOut();
+    final failureOrSignedOut = await fbLoginRepository.logOut();
     state = failureOrSignedOut.fold(
       (l) => FbAuthState.failure(l),
       (r) => const FbAuthState.unauthenticated(),
