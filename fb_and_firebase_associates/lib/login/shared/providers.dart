@@ -7,7 +7,6 @@ import 'package:fb_and_firebase_associates/login/google_login/infrastructure/goo
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter/material.dart';
 
 final googleSignInProvider = Provider(
   (ref) => GoogleSignIn(

@@ -39,6 +39,7 @@ dependencies:
   lottie: ^1.1.0
   sign_in_with_apple: null
   uni_links: ^0.5.1
+  material_design_icons_flutter: ^5.0.5955-rc.1
 
 dev_dependencies:
   auto_route_generator: any

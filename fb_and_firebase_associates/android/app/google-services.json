@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "702069133659-5hdtsnqapq0q33ff5e3tf28us18c0hhn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.linmg.fb_and_firebase_associates",
+            "certificate_hash": "45491a5226f862a31d919a22b10cefb2650267e5"
+          }
+        },
+        {
           "client_id": "702069133659-62ssajqs75l4sd3368cai4f57v3g3095.apps.googleusercontent.com",
           "client_type": 3
         }

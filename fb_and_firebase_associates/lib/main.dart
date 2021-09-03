@@ -1,19 +1,38 @@
+import 'package:dartz/dartz.dart';
+import 'package:fb_and_firebase_associates/login/shared/providers.dart';
 import 'package:fb_and_firebase_associates/router/router.gr.dart';
-import 'package:fb_and_firebase_associates/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIOverlays(
       [SystemUiOverlay.bottom, SystemUiOverlay.top]);
-  runApp(MyApp());
+  await Firebase.initializeApp();
+  runApp(ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+final initializationProvider = Provider<Unit>((ref) {
+  if (kIsWeb) {
+    ref.watch(facebookAuthProvider).webInitialize(
+          appId: "1329834907365798",
+          cookie: true,
+          xfbml: true,
+          version: "v11.0",
+        );
+  }
+  return unit;
+});
+
+class MyApp extends ConsumerWidget {
   final appRouter = AppRouter();
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(initializationProvider, (state) {});
     return MaterialApp.router(
       title: 'Material App',
       routeInformationParser: appRouter.defaultRouteParser(),

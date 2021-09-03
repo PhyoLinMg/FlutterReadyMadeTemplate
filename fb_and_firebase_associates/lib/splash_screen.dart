@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>
       _animationController.forward(from: 0);
       _animationController.stop(canceled: true);
       AutoRouter.of(context)
-          .pushAndPopUntil(PostRoute(), predicate: (route) => false);
+          .pushAndPopUntil(AllLoginRoute(id: 1), predicate: (route) => false);
     });
     super.initState();
   }
