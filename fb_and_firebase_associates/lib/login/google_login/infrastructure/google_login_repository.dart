@@ -5,24 +5,28 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleLoginRepository implements LoginRepository {
-  final FirebaseAuth _auth;
+  final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
-  GoogleLoginRepository(this._auth, this._googleSignIn);
+  GoogleLoginRepository(this._firebaseAuth, this._googleSignIn);
   @override
-  Future<Either<AuthFailure, String>> login() async {
+  Future<Either<AuthFailure, String?>> login() async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount!.authentication;
+      print("This is google signin $googleSignInAccount");
+      final GoogleSignInAuthentication? googleSignInAuthentication =
+          await googleSignInAccount?.authentication;
+      print(
+          "this is google signinauthentication access token ${googleSignInAuthentication?.accessToken}");
       final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
+        accessToken: googleSignInAuthentication?.accessToken,
+        idToken: googleSignInAuthentication?.idToken,
       );
-      final tt = await _auth.signInWithCredential(credential);
-      return right(googleSignInAuthentication.accessToken!);
-    } catch (error) {
+      print("this is credential $credential");
+
+      return right(googleSignInAuthentication?.accessToken);
+    } on Exception catch (error) {
       return left(AuthFailure(message: "the error is $error"));
     }
   }

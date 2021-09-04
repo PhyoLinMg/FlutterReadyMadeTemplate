@@ -30,7 +30,7 @@ class GoogleAuthNotifier extends StateNotifier<GoogleAuthState> {
     final failureOrSignedOut = await googleLoginRepository.login();
     state = failureOrSignedOut.fold(
       (l) => GoogleAuthState.failure(l),
-      (r) => GoogleAuthState.authenticated(r),
+      (r) => GoogleAuthState.authenticated(r!),
     );
   }
 

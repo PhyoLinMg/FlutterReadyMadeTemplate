@@ -27,7 +27,7 @@ class FbAuthNotifier extends StateNotifier<FbAuthState> {
     final failureOrToken = await fbLoginRepository.login();
     state = failureOrToken.fold(
       (l) => FbAuthState.failure(l),
-      (r) => FbAuthState.authenticated(r),
+      (r) => FbAuthState.authenticated(r!),
     );
   }
 

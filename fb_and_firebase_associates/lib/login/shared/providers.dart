@@ -4,6 +4,7 @@ import 'package:fb_and_firebase_associates/login/fb_login/application/fb_auth_no
 import 'package:fb_and_firebase_associates/login/fb_login/infrastructure/fb_login_repository.dart';
 import 'package:fb_and_firebase_associates/login/google_login/application/google_auth_notifier.dart';
 import 'package:fb_and_firebase_associates/login/google_login/infrastructure/google_login_repository.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -17,10 +18,13 @@ final googleSignInProvider = Provider(
   ),
 );
 
+final firebaseAuthProvider = Provider((ref) => FirebaseAuth.instance);
+
 final facebookAuthProvider = Provider((ref) => FacebookAuth.instance);
 
 final googleLogInRepositoryProvider = Provider<LoginRepository>(
   (ref) => GoogleLoginRepository(
+    ref.watch(firebaseAuthProvider),
     ref.watch(googleSignInProvider),
   ),
 );

@@ -33,12 +33,12 @@ class AuthNotifier extends StateNotifier<AuthState> {
     if (provider == LoginType.facebook) {
       final fbFailureOrToken = await fbLoginRepository.login();
       state = fbFailureOrToken.fold((l) => AuthState.authenticationFailure(l),
-          (r) => AuthState.authenticated(r));
+          (r) => AuthState.authenticated(r!));
     } else if (provider == LoginType.google) {
       final googleFailureOrToken = await googleLoginRepository.login();
       state = googleFailureOrToken.fold(
         (l) => AuthState.authenticationFailure(l),
-        (r) => AuthState.authenticated(r),
+        (r) => AuthState.authenticated(r!),
       );
     }
   }

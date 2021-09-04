@@ -9,7 +9,7 @@ class FbLoginRepository implements LoginRepository {
   FbLoginRepository(this._auth);
 
   @override
-  Future<Either<AuthFailure, String>> login() async {
+  Future<Either<AuthFailure, String?>> login() async {
     try {
       final result = await _auth.login();
       if (result.status == LoginStatus.success) {
