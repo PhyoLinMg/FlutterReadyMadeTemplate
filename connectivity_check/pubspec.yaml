@@ -34,6 +34,8 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^0.14.3
+  dartz: ^0.10.0
+  flash: ^2.0.1
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to
