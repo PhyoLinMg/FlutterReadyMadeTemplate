@@ -167,7 +167,7 @@ class MyWidget extends StatelessWidget {
 
 - [Multiple Theme](https://www.filledstacks.com/post/multiple-themes-in-flutter-dark-and-light-theme-flutter-stacked/) in Flutter(Integrated in this repository)
 
-- [Dark and Light Theme](https://github.com/FilledStacks/stacked/tree/master/packages/stacked_themes/example/lib/ui/dark_light) in Flutter(Not Integrated)
+- [Dark and Light Theme](https://github.com/FilledStacks/stacked/tree/master/packages/stacked_themes/example/lib/ui/dark_light) in Flutter(Now Integrated)
 
 - [Removing Scroll Glow](https://stackoverflow.com/a/51119796/5869913)
 
@@ -179,7 +179,12 @@ class MyWidget extends StatelessWidget {
 
 - [Flutter Multi-Language](https://medium.com/flutter-community/multi-language-support-in-flutter-a12de708f833)
 
-  
+-[You know what? I will try to implement something with agora.](https://www.youtube.com/watch?v=wpa3Ium0yAc)
+
+- [**My Blog with DApp will be added to this.**]()
 
 ## Resources
+- [Streamr by Tedas](https://www.youtube.com/watch?v=wpa3Ium0yAc)
+- [Best Dart Language Explanation](https://www.youtube.com/watch?v=F3JuuYuOUK4)
+- [Flutter with blockchain]()
 
