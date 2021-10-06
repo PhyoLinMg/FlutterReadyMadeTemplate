@@ -8,6 +8,7 @@ In This Repository, I will make neat and tidy features to our code.
 - [Multiple Theme App]()
 - [Pagination With StateNotifier]()
 - [Login Flow including Refreshing Access Token]()
+- [Facebook login and Firebase associates]()
 
 #### Some Tips and Tricks
 
